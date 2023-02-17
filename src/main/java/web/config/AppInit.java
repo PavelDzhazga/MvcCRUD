@@ -20,10 +20,17 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
     }
 
     @Override
-    protected Filter[] getServletFilters() {
-        CharacterEncodingFilter filter = new CharacterEncodingFilter();
-        filter.setEncoding("UTF-8");
-        filter.setForceEncoding(true);
-        return new Filter[] { filter };
+    public void onStartup(ServletContext servletContext) throws ServletException {
+        super.onStartup(servletContext);
+        FilterRegistration.Dynamic encodingFilter = servletContext.addFilter("encodingFilter", new CharacterEncodingFilter());
+        encodingFilter.setInitParameter("encoding", "UTF-8");
+        encodingFilter.setInitParameter("forceEncoding", "true");
+        encodingFilter.addMappingForUrlPatterns(null, true, "/*");
+        registerHiddenFieldFilter(servletContext);
+    }
+
+    public void registerHiddenFieldFilter(ServletContext aContext) {
+        aContext.addFilter("hiddenHttpMethodFilter",
+                new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null, true, "/*");
     }
 }
