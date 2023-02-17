@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
-    <title>Title</title>
+    <title>Изменить</title>
 </head>
 <body>
 <form action="#" th:action="@{/edit}" th:object="${user}" method="post">
     <input type="hidden" th:field="*{id}" th:value="*{id}"/>
-    <p>Name: <input type="text" th:field="*{name}" th:value="*{name}" th:charset="utf-8"/></p>
-    <p>Age: <input type="text" th:field="*{age}" th:value="*{age}"/></p>
+    <p>Имя: <input type="text" th:field="*{name}" th:value="*{name}" th:charset="utf-8"/></p>
+    <p>Возраст: <input type="text" th:field="*{age}" th:value="*{age}"/></p>
     <p>E-mail: <input type="text" th:field="*{email}" th:value="*{email}" th:charset="utf-8"/></p>
-    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+    <p><input type="submit" value="Изменить"/></p>
 </form>
 </body>
 </html>

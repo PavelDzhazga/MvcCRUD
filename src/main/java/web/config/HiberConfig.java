@@ -36,8 +36,8 @@ public class HiberConfig {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/spring_hiber?useUnicode=true&amp;characterEncoding=utf8&amp;characterSetResults=utf8");
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/spring_hiber");
         dataSource.setUsername("root");
         dataSource.setPassword("root");
         return dataSource;

@@ -40,7 +40,7 @@
         }
     </style>
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
-    <title>Users</title>
+    <title>Пользователи</title>
 </head>
 <body>
 <div>
@@ -48,10 +48,10 @@
     <table>
         <tr>
             <th>id</th>
-            <th>Name</th>
-            <th>Age</th>
+            <th>Имя</th>
+            <th>Возраст</th>
             <th>E-mail</th>
-            <th>Options</th>
+            <th>Опции</th>
         </tr>
         <th:block th:each="user : ${users}">
             <tr>
@@ -60,8 +60,8 @@
                 <td th:text="${user.age}"></td>
                 <td th:text="${user.email}"></td>
                 <td>
-                    <a href="#" th:href="@{/edit/{linkTitle}(linkTitle=${user.id})}" th:text="edit"></a>
-                    <a href="#" th:href="@{/delete/{linkTitle}(linkTitle=${user.id})}" th:text="delete"></a>
+                    <a href="#" th:href="@{/edit/{linkTitle}(linkTitle=${user.id})}" th:text="Изменить"></a>
+                    <a href="#" th:href="@{/delete/{linkTitle}(linkTitle=${user.id})}" th:text="Удалить"></a>
                 </td>
             </tr>
         </th:block>
