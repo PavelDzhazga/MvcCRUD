@@ -16,37 +16,37 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @GetMapping(value = "/")
     public String getIndex(ModelMap model) {
         model.addAttribute("users", userService.getAllUsers());
         return "index";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    @GetMapping(value = "/add")
     public String addForm(ModelMap model) {
         model.addAttribute("user", new User());
         return "add";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @PostMapping(value = "/add")
     public String addSubmit(@ModelAttribute User user) {
         userService.addUser(user);
         return "redirect:/";
     }
 
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/delete/{id}")
     public String deleteUser(@PathVariable("id") Long id) {
         userService.deleteUser(id);
         return "redirect:/";
     }
 
-    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/edit/{id}")
     public String editPage(@PathVariable("id") Long id, ModelMap model) {
         model.addAttribute("user", userService.getById(id));
         return "edit";
     }
 
-    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    @PostMapping(value = "/edit")
     public String editSubmit(@ModelAttribute User user) {
         userService.updateUser(user);
         return "redirect:/";
